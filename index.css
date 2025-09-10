@@ -231,7 +231,10 @@ body {
 .introduction{
     margin-top: 100px;
     padding: 20px;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: rgba(0, 0, 0, 0.4);
 
     p{
