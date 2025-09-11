@@ -476,3 +476,29 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+/*footer css start*/
+.footer-container{
+    display: flex;
+    background: rgba(40, 53, 147, 0.2);
+    justify-content: center;
+    padding: 20px;
+}
+.footer-contents{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2{
+        color: white;
+        text-align: center;
+    }
+    p{
+        text-align: center;
+        color: darkgrey;
+        padding: 10px;
+    }
+}
+
+
+/*footer css end*/
