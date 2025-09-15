@@ -18,23 +18,23 @@
     </a>
 
     <ul class="nav-links">
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="#">Our Works</a></li>
-        <li><a href="#">Contacts</a></li>
+        <li><a href="#" class="active" data-target="home-content">Home</a></li>
+        <li><a href="#" data-target="our-works-content">Our Works</a></li>
+        <li><a href="#" data-target="contacts-content">Contacts</a></li>
     </ul>
-    <button class="menu-toggle" onclick="openNav()">☰</button>
+    <button class="menu-toggle" onclick="openNav()" id="open_nav">☰</button>
+    <button class="close-btn menu-toggle" id="close_nav" onclick="closeNav()">X</button>
 </nav>
 <!-- Overlay -->
 <div id="overlay" class="overlay" onclick="closeNav()"></div>
 <div id="sidePanel" class="side-panel">
-    <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
-    <a href="#">Home</a>
-    <a href="#"> Contact</a>
-    <a href="#"> Settings</a>
+    <a href="#" class="active" data-target="home-content">Home</a>
+    <a href="#" data-target="our-works-content"> Our Works</a>
+    <a href="#" data-target="contacts-content"> Contacts</a>
 </div>
-
+<div class="container">
 <!--Homepage html started-->
-<div class="homepage-container">
+<div class="homepage-container content" id="home-content">
     <div class="introduction backdrop-blur-l frosted-glass fade-in">
         <h2> Welcome to</h2>
         <h1>Pipe Doctor</h1>
@@ -110,8 +110,16 @@
 <!--here will be end of html of the homepage-->
 
 <!--here will be the Our Working page code-->
+    <div class="our-works-container content" id="our-works-content">
+        <h2>Our-Works</h2>
+
+    </div>
 
 <!--here will be the Contacts page code-->
+<div class="contact-container content" id="contacts-content">
+    <h2>Contact-page</h2>
+
+</div>
 
 
 <!--Here will be the same footer area for every page-->
@@ -126,7 +134,7 @@
     </div>
 
 </div>
-
+</div>
 <!--footer html end here-->
 <!--In here the js code-->
 <script src="index.js"></script>

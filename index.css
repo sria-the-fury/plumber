@@ -118,9 +118,11 @@ body {
 
 .menu-toggle {
     display: none;
+    width: 30px;
+    height: 30px;
     background: rgba(255, 255, 255, 0.2);
     border: none;
-    border-radius: 4px;
+    border-radius: 15px;
     color: white;
     font-size: 1rem;
     padding: 0 .5rem;
@@ -128,6 +130,7 @@ body {
     margin-right: 0.1rem;
     transition: background 0.3s;
 }
+
 
 .menu-toggle:hover {
     background: rgba(255, 255, 255, 0.3);
@@ -150,6 +153,7 @@ body {
 .side-panel {
     height: 100%;
     width: 0;
+    display: none;
     position: fixed;
     z-index: 100;
     top: 0;
@@ -170,7 +174,6 @@ body {
     color: white;
     display: block;
     transition: 0.3s;
-    border-left: 4px solid transparent;
 }
 
 .side-panel a:hover {
@@ -181,8 +184,7 @@ body {
 
 .side-panel a{
     margin-right: 10px;
-    width: 25px;
-    text-align: center;
+    text-align: left;
 }
 
 .side-panel .close-btn {
@@ -232,10 +234,13 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
+/*main container*/
+.container{
+    width: 100%;
+}
 
 /*Homepage css goes here*/
 .homepage-container {
-    width: 100%;
     margin-top: 80px;
     color: white;
 }
@@ -417,8 +422,22 @@ body {
     .nav-links{
         display: none;
     }
+    .side-panel, .overlay{
+        display: block;
+    }
     .menu-toggle{
         display: block;
+    }
+    .close-btn{
+        display: none;
+    }
+}
+@media (min-width: 501px) {
+    .menu-toggle{
+        display: none !important;
+    }
+    .close-btn{
+        display: none;
     }
 }
 
@@ -557,4 +576,16 @@ body {
 }
 
 
+
+
 /*footer css end*/
+
+/*Contacts page css*/
+
+.contact-container{
+    display: none;
+}
+
+.our-works-container{
+    display:none;
+}
