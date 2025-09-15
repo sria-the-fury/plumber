@@ -1,3 +1,5 @@
+@import url('contact.css');
+
 * {
     margin: 0;
     padding: 0;
@@ -303,6 +305,10 @@ body {
     width: fit-content;
     text-align: center;
     margin-top: 10px;
+    color: white;
+    font-family: "Epunda Slab", serif;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.1);
     border: rgba(255, 255, 255, 0.4) solid 2px;
 }
 
@@ -584,6 +590,7 @@ body {
 
 .contact-container{
     display: none;
+    margin-top: 80px;
 }
 
 .our-works-container{
