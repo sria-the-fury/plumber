@@ -1,6 +1,6 @@
 
 
-const contentDivs = document.querySelectorAll('.content');
+const contentDivs = document.querySelectorAll('.all-content');
 function showContent(targetId) {
     // 4. Hide all content divs.
     contentDivs.forEach(div => {
