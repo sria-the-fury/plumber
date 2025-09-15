@@ -235,6 +235,7 @@ body {
 
 /*Homepage css goes here*/
 .homepage-container {
+    width: 100%;
     margin-top: 80px;
     color: white;
 }
@@ -362,7 +363,53 @@ body {
 
 }
 
+.why-best{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
 
+
+.emp-image-container, .why-best-content {
+    width: calc(50% - 20px);
+    flex-shrink: 1;
+    flex-grow: 1;
+    padding: 10px;
+}
+.emp-image-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.emp-image{
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.why-best-content{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    p{
+        color: darkgrey;
+        padding: 10px;
+    }
+    .our-offer{
+        p{
+            color: white;
+            font-weight: bold;
+
+        }
+        i{
+            padding-right: 5px;
+        }
+
+
+    }
+}
 
 
 
@@ -372,6 +419,15 @@ body {
     }
     .menu-toggle{
         display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .emp-image-container,
+    .why-best-content {
+        /* On mobile, each item takes up 100% of the width, minus any padding */
+        width: 100%;
+        padding: 10px;
     }
 }
 
