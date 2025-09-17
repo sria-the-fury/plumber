@@ -8,7 +8,7 @@
 
 /* Hero Section */
 .hero-contact {
-    background: linear-gradient(rgba(0, 86, 179, 0.4), rgba(0, 86, 179, 0.6)); /* Placeholder background image */
+    background: linear-gradient(rgba(0, 86, 179, 0.2), rgba(0, 86, 179, 0.4)); /* Placeholder background image */
     color: white;
     text-align: center;
     padding: 80px 20px;
@@ -47,6 +47,9 @@
     color: white;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    a{
+        color: lightgrey;
+    }
 }
 
 .contact-card:hover {
