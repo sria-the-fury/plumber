@@ -1,0 +1,316 @@
+
+
+
+
+.our-works-container{
+    margin-top: 80px;
+}
+
+.projects-container{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    h1{
+        text-align: center;
+    }
+    p{
+        text-align: center;
+    }
+
+}
+.down-arrow-btn{
+    color: white;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px 10px;
+    border-radius: 20px;
+}
+.down-arrow-btn:hover{
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#hero {
+    background: linear-gradient(rgba(13, 71, 161, 0.2), rgba(13, 71, 161, 0.4));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+}
+
+
+.hero-content p {
+    font-size: 1.1em;
+    margin-bottom: 0.5rem;
+    color: lightgrey;
+}
+
+
+.project-card {
+    color: white;
+    margin: 1rem 1rem;
+    border-radius: 8px;
+    border: rgba(13, 71, 161, 0.7) solid 1px;
+    overflow: hidden;
+    padding: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.project-card p{
+    text-align: justify;
+    color: white;
+}
+.project-card h3{
+    color: white;
+}
+
+.tags span{
+    background: rgba(13, 71, 161, 0.7);
+    padding: 2px 5px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    color: #dddddd;
+}
+
+
+/*Testimonial carousel*/
+
+/* Basic styling for the entire page and containers */
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 0.5rem;
+    position: relative;
+    padding: 0 50px; /* Space for the arrows */
+}
+
+/* Styles for the cards and their wrapper */
+.card-wrapper {
+    display: flex;
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scroll transition */
+    -webkit-overflow-scrolling: touch; /* For better scrolling on iOS */
+    gap: 20px; /* Space between cards */
+}
+
+/* Hide the scrollbar for a cleaner look */
+.card-wrapper::-webkit-scrollbar {
+    display: none;
+}
+.card-wrapper {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.testimonials{
+    margin-top: 1.0rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p{
+        text-align: center;
+    }
+}
+.testimony-card {
+    flex: 0 0 auto; /* Prevents cards from growing or shrinking */
+    width: 280px; /* Fixed width for desktop */
+    background-color: #d3d3d3; /* Gray background as in your design */
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0.7rem;
+    cite{
+        font-weight: bold;
+        text-align: left;
+    }
+    .stars{
+        margin-bottom: 10px;
+        i{
+            color: #ffc107;
+            font-size: 1.1rem;
+            text-align: left;
+        }
+    }
+    blockquote {
+        text-align: justify;
+
+    }
+    address{
+        color: lightgrey;
+        font-size: 0.8rem;
+    }
+
+
+}
+
+.card-content {
+    color: #333;
+}
+
+/* Styles for the navigation arrows */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0, 0.3);
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 24px;
+    user-select: none;
+    z-index: 10;
+}
+
+.carousel-arrow:hover {
+    background-color: rgba(255,255,255, 0.2);
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
+}
+
+/* Media Queries for responsiveness */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .carousel-container {
+        padding: 0 30px;
+    }
+    .card {
+        width: 250px;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    .carousel-container {
+        padding: 0 10px;
+    }
+    .carousel-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+    .card {
+        width: 220px;
+    }
+}
+
+/* Smaller mobile devices */
+@media (max-width: 480px) {
+    .carousel-container {
+        padding: 0 5px;
+    }
+    .carousel-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+    .card {
+        width: 90vw; /* Use viewport width for better fit */
+    }
+}
+
+
+/*carousel end*/
+
+.add-testimonial{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    h2{
+        text-align: center;
+    }
+    p{
+        text-align: center;
+    }
+
+}
+.testimonial-form{
+    margin-top: .5rem;
+    padding: .9rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+
+.form-group-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.star-rating-input i {
+    font-size: 1.8rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.star-rating-input i.fa-solid {
+    color: #ffc107;
+}
+
+#testimonial-form button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
