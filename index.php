@@ -193,57 +193,31 @@
 
                 <div class="carousel-container">
                     <div class="carousel-arrow left-arrow">&#10094;</div>
-                    <div class="card-wrapper">
-                        <div class="testimony-card backdrop-blur-m round-corner frosted-glass">
-                            <cite>~ Ana P.</cite>
-                            <address>Vilnius Old Town</address>
-                            <div class="stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <blockquote>
-                                "After a pipe burst in our apartment, we were in a panic. I called, and they were at our door in under an hour. Professional, quick, and saved us from major water damage. Highly recommended!"
-                            </blockquote>
-                        </div>
-                        <div class="testimony-card backdrop-blur-m round-corner frosted-glass">
-                            <cite>~ Jonas Kazlauskas</cite>
-                            <address>Didlaukio, Vilnius</address>
-                            <div class="stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <blockquote>
-                                "Excellent plumber! Arrived quickly and fixed the leaking pipe. Very professional and friendly. I definitely recommend."
-                            </blockquote>
-                        </div>
-                        <div class="testimony-card backdrop-blur-m round-corner frosted-glass">
-                            <cite>~ Ieva Jonaitė</cite>
-                            <address>Aušros al., Kaunas</address>
-                            <div class="stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <blockquote>
-                                "Very satisfied with the services. They even came late in the evening when there was an emergency. The price was fair and the work was of high quality. The best choice in the city."
-                            </blockquote>
-                        </div>
-                        <div class="testimony-card backdrop-blur-m round-corner frosted-glass">
-                            <cite>~ Rūta Pocienė</cite>
-                            <address>Taikos pr., Klaipėda</address>
-                            <div class="stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <blockquote>
-                                "The toilet was clogged, and I didn't have time to fix it myself. I called and an hour later the plumber was already on-site. Great communication and a quick solution."
-                            </blockquote>
-                        </div>
-                        <div class="testimony-card backdrop-blur-m round-corner frosted-glass">
-                            <cite>~ Mantas Urbonas</cite>
-                            <address>Laisvės al, Panevėžys</address>
-                            <div class="stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <blockquote>
-                                "They installed a new shower cabin. The work was done cleanly and without a hitch. All my questions were answered clearly. A reliable company."
-                            </blockquote>
-                        </div>
+                    <div class="card-wrapper" id="tesimony-data">
+                        <?php
+                        include 'php/connection.php';
+                        $sql = "SELECT clientName, clientLocation, clientRating, testimony FROM testimony ORDER BY created_at DESC";
+                        $result = $connection_sql->query($sql);
+                        if ($result->num_rows > 0) {
+                            // Output data of each row
+                            while ($row = $result->fetch_assoc()) {
+                                echo '<div class="testimony-card backdrop-blur-m round-corner frosted-glass">';
+                                echo '<cite>~ ' . htmlspecialchars($row["clientName"]) . '</cite>';
+                                echo '<address>' . htmlspecialchars($row["clientLocation"]) . '</address>';
+                                echo '<div class="stars">';
+                                for ($i = 0; $i < intval($row["clientRating"]); $i++) {
+                                    echo '<i class="fas fa-star"></i>';
+                                }
+                                for ($i = intval($row["clientRating"]); $i < 5; $i++) {
+                                    echo '<i class="fa-regular fa-star"></i>';
+                                }
+                                echo '</div>';
+                                echo '<blockquote>"' . htmlspecialchars($row["testimony"]) . '"</blockquote>';
+                                echo '</div>';
+                            }
+                        }
+                        $connection_sql->close();
+                        ?>
                     </div>
                     <div class="carousel-arrow right-arrow">&#10095;</div>
                 </div>
@@ -284,12 +258,7 @@
                     </div>
                     <button type="submit" class="round-corner button ">Submit Your Review</button>
                 </form>
-                <?php
-                echo "<h2>PHP Code</h2>";
-                echo "<h3>Name" . $_POST['name'] . "Printed";
 
-
-                ?>
             </section>
 
         </div>
