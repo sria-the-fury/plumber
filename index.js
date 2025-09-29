@@ -131,6 +131,9 @@ document.addEventListener("DOMContentLoaded", function () {
           formTestimony.reset();
           resetStars();
           ratingValueInput.value = "0";
+          setTimeout(() => {
+            location.reload();
+          }, 1000);
         })
         .catch((error) => {
           console.error("Fetch error:", error);
@@ -192,4 +195,16 @@ contactForm.addEventListener("submit", function (event) {
       // Display an error message to the user
       // For example: responseMessage.textContent = "An error occurred.";
     });
+});
+
+//count testimony char
+document.addEventListener("DOMContentLoaded", function () {
+  const testimonyInput = document.getElementById("testimony");
+  const countCharLabel = document.getElementById("count-char");
+
+  testimonyInput.addEventListener("input", () => {
+    const currentLength = testimonyInput.value.length;
+    countCharLabel.textContent = `Your Testimony [${currentLength} / 200]`;
+    console.log(currentLength); // Check if this logs in console
+  });
 });

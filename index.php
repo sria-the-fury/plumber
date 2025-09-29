@@ -249,8 +249,8 @@
                         <input type="hidden" name="rating" id="rating-value" value="0" required>
                     </div>
                     <div class="form-group">
-                        <label for="testimony">Your Testimony</label>
-                        <textarea id="testimony" name="testimony" rows="5" required></textarea>
+                        <label for="testimony" id="count-char">Your Testimony [0 / 200]</label>
+                        <textarea maxlength="200" id="testimony" name="testimony" rows="5" required></textarea>
                     </div>
                     <div class="form-group-checkbox">
                         <input type="checkbox" id="consent" name="consent" required>

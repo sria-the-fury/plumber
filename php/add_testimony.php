@@ -1,6 +1,6 @@
 <?php
 include 'connection.php';
-
+//api call to add testimony
 header('Content-Type: application/json');
 $response = [];
 
