@@ -10,6 +10,7 @@ $create_message = "CREATE TABLE IF NOT EXISTS message (
     email VARCHAR(100) NOT NULL,
     service VARCHAR(100) NOT NULL,
     message TEXT NOT NULL,
+    seen BOOLEAN DEFAULT FALSE NOT NULL,
     sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
 mysqli_query($connection_sql, $create_message);
