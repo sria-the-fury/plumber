@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         userDisplayName.textContent = "Set Your name";
       }
-      
     } else {
       // User is signed out
       dashboardDiv.style.display = "none";
@@ -64,16 +63,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const logoutButton = document.getElementById("logout-button");
   logoutButton.addEventListener("click", () => {
-    // 7. Sign out
-    auth
-      .signOut()
-      .then(() => {
-        alert("Signed out successfully.");
-        loginDiv.style.display = "block";
-        dashboardDiv.style.display = "none";
-      })
-      .catch((error) => {
-        console.error("Sign out error:", error);
-      });
+    const userConfirmed = confirm("Are you sure you want to sign out?");
+    if (userConfirmed) {
+      auth
+        .signOut()
+        .then(() => {
+          alert("Signed out successfully.");
+          loginDiv.style.display = "block";
+          dashboardDiv.style.display = "none";
+        })
+        .catch((error) => {
+          console.error("Sign out error:", error);
+        });
+    }
   });
 });

@@ -58,10 +58,10 @@
             <i class="fa-solid fa-faucet-drip"></i>
             <span>Doct 'r</span>
           </div>
-          <div class="name-and-email">
+          <div class="name-and-email backdrop-blur-m">
             <div class="owner-name" id="owner-name">Pipe Doctor's Admin</div>
           </div>
-          
+
           <div class="review-message">
             <div class="review-count">
               <i class="fa-solid fa-star"></i>
@@ -72,7 +72,7 @@
               <div class="circle-count">0</div>
             </div>
           </div>
-          <button id="logout-button" class="button">Logout</button>
+          <button id="logout-button" class="logout-btn">Logout</button>
         </div>
       </div>
       <div class="summary">
@@ -83,20 +83,78 @@
           <div class="card-info">
             <div class="card-title">Total Reviews</div>
             <div class="card-value" id="total-reviews">0</div>
+          </div>
         </div>
-      </div>
-       <div class="card-review-message backdrop-blur-m">
+        <div class="card-review-message backdrop-blur-m">
           <div class="card-icon">
             <i class="fa-solid fa-envelope"></i>
           </div>
           <div class="card-info">
             <div class="card-title">Total Messages</div>
             <div class="card-value" id="total-reviews">0</div>
+          </div>
         </div>
-    </div>
-    </div>
+      </div>
 
+      <div class="review-and-message-data">
+        <div class="review-data backdrop-blur-m">
+        <h2>Recent Reviews</h2>
+        <div class="review-list" id="review-list">
 
+          <div class="review-card">
+
+            <div class="name-address-rating-wrap">
+              <div class="name-address">
+                <div class="reviewer-name">John Doe</div>
+                <div class="reviewer-address">Kaunas, Lithania</div>
+              </div>
+              <div class="time-and-arrow">
+                <div class="review-time"> Today, 17:05</div>
+                <div class="expand-arrow">
+                  <div class="arrow-down">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                  <div class="arrow-up">
+                    <i class="fa-solid fa-chevron-up"></i>
+                  </div>
+                </div>
+              
+              </div>
+            
+            <div class="reviewer-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+          <div class="review-content-action">
+            <div class="content-data">
+              Hello! I had a fantastic experience with Pipe Doctor. They were prompt, professional, and fixed my leaking pipe in no time. Highly recommend their services!
+            </div>
+        
+              <div class="review-action">
+                <div class="approved-button">
+                  <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div class="delete-button">
+                  <i class="fa-regular fa-circle-xmark"></i>
+                </div>
+              
+              </div>
+          </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="message-data backdrop-blur-m">
+        <h2>Recent Messages</h2>
+        <div class="message-list" id="message-list">
+          <!-- Messages will be dynamically added here -->
+        </div>
+      </div>
+    </div>
 
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>

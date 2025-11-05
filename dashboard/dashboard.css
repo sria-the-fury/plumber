@@ -273,3 +273,152 @@ button[type="submit"]:hover {
     font-size: 2em;
   }
 }
+
+.review-and-message-data {
+  flex: 0 0 auto;
+  margin-top: 20px;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.review-data {
+  background-color: rgba(255, 255, 255, 0.1);
+  min-width: 350px;
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 10px;
+  height: 70vh;
+}
+
+.message-data {
+  background-color: rgba(255, 255, 255, 0.1);
+  min-width: 350px;
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 10px;
+  height: 70vh;
+}
+
+.review-card {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 8px 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.name-address-rating-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-items: space-between;
+  align-items: space-between;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+.reviewer-name {
+  font-weight: bold;
+}
+
+.reviewer-address {
+  color: lightgrey;
+  font-size: 0.8em;
+}
+
+.review-content-action {
+  max-height: 0;
+  opacity: 0;
+
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out,
+    padding 0.3s ease-out;
+}
+
+.review-card.expanded .review-content-action {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.round-expand-button {
+  position: absolute;
+  right: 0;
+  left: 0;
+  align-self: center;
+  bottom: 0;
+}
+
+.time-and-arrow {
+  align-items: center;
+  justify-items: center;
+}
+
+.review-time {
+  font-size: 0.7em;
+  color: lightgrey;
+}
+.arrow-up {
+  transition: 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+  display: none;
+}
+.arrow-down {
+  padding: 0 !important;
+  margin: 0 !important;
+  transition: 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+  display: block;
+}
+
+.review-action {
+  display: flex;
+
+  gap: 30px;
+  justify-content: center;
+}
+
+.approved-button {
+  color: white;
+  border: none;
+  padding: 8px 8px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  i {
+    color: #28a745;
+    font-size: 1.3rem;
+  }
+}
+
+.delete-button {
+  color: white;
+  border: none;
+  padding: 8px 8px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  i {
+    color: #f05417;
+    font-size: 1.3rem;
+  }
+}
+.content-data {
+  text-align: justify;
+}
+
+.expand-arrow:hover {
+  cursor: pointer;
+}
+.logout-btn {
+  background-color: tomato;
+  width: 60px;
+  height: 30px;
+  place-items: center;
+  padding: 5px 5px;
+}
