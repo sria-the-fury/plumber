@@ -16,13 +16,14 @@
     <nav class="navbar">
         <a href="#" class="logo">
             <i class="fa-solid fa-faucet-drip"></i>
-            Doctor
+            Doct r
         </a>
 
         <ul class="nav-links">
             <li><a href="#" class="active" data-target="home-content">Home</a></li>
             <li><a href="#" data-target="our-works-content">Our Works</a></li>
             <li><a href="#" data-target="contacts-content">Contacts</a></li>
+            <li><a id='dashboard-click' href="dashboard/dashboard.php"><i class="fa-solid fa-right-to-bracket"></i></a></li>
         </ul>
         <button class="menu-toggle" onclick="openNav()" id="open_nav">☰</button>
         <button class="close-btn menu-toggle" id="close_nav" onclick="closeNav()">X</button>
@@ -33,6 +34,7 @@
         <a href="#" class="active" data-target="home-content">Home</a>
         <a href="#" data-target="our-works-content"> Our Works</a>
         <a href="#" data-target="contacts-content"> Contacts</a>
+        <a id='dashboard-click-side' href="dashboard/dashboard.php"><i class="fa-solid fa-right-to-bracket"></i></a>
     </div>
     <div class="container">
         <!--Homepage html started-->

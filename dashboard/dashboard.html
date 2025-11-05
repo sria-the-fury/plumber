@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Dashboard-PipeDoctor</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <!-- login page -->
+    <div id="login-container">
+      <div class="login-area">
+        <div class="login-form-area">
+          <div class="login-card backdrop-blur-m">
+            <div class="logo">
+              <i class="fa-solid fa-faucet-drip"></i>
+              <span>Doctor</span>
+            </div>
+
+            <h3>Dashboard Login</h3>
+            <form id="login-form">
+              <div class="form-group">
+                <label for="email">Username:</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required />
+              </div>
+
+              <div class="button-and-text">
+                <button type="submit">Login</button>
+                <span class="forgot-password"
+                  ><a href="#">Forgot Password?</a></span
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- after login -->
+    <div class="dashboard-area" id="dashboard-container">
+      <div class="dashboard">
+        <div class="top-bar">
+          <div class="logo-dashboard">
+            <i class="fa-solid fa-faucet-drip"></i>
+            <span>Doct 'r</span>
+          </div>
+          <div class="name-and-email">
+            <div class="owner-name" id="owner-name">Pipe Doctor's Admin</div>
+          </div>
+          
+          <div class="review-message">
+            <div class="review-count">
+              <i class="fa-solid fa-star"></i>
+              <div class="circle-count">0</div>
+            </div>
+            <div class="review-count">
+              <i class="fa-solid fa-envelope"></i>
+              <div class="circle-count">0</div>
+            </div>
+          </div>
+          <button id="logout-button" class="button">Logout</button>
+        </div>
+      </div>
+      <div class="summary">
+        <div class="card-review-message backdrop-blur-m">
+          <div class="card-icon">
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Total Reviews</div>
+            <div class="card-value" id="total-reviews">0</div>
+        </div>
+      </div>
+       <div class="card-review-message backdrop-blur-m">
+          <div class="card-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div class="card-info">
+            <div class="card-title">Total Messages</div>
+            <div class="card-value" id="total-reviews">0</div>
+        </div>
+    </div>
+    </div>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
+    <script src="app.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

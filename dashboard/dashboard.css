@@ -1,0 +1,275 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Set a fallback color in case the image doesn't load */
+  background-color: black;
+  margin: 0;
+  font-family: "Epunda Slab", serif !important;
+  font-optical-sizing: auto;
+  color: white;
+  height: 100%; /* Important for the background to cover the full page */
+}
+
+/* This is the key part for a fixed background on all devices */
+body::before {
+  content: "";
+  position: fixed; /* Fixes the pseudo-element to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Puts the background behind the content */
+  background-image: url("../image/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center center;
+  transition: margin-left 0.5s;
+}
+
+#login-container {
+  display: none;
+}
+
+.login-form-area {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+  i {
+    font-size: 5em;
+  }
+}
+
+.login-card {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 350px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+  margin-top: 20px;
+}
+
+.logo {
+  margin: 0 auto;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  width: 120px;
+  background-color: rgba(0, 123, 255, 0.25);
+  padding: 5px 5px;
+  border-radius: 50%;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+  flex-direction: column;
+  span {
+    position: absolute;
+    color: white;
+    font-size: 1.6em;
+    font-weight: 700;
+    top: 85px;
+    left: 148px;
+  }
+}
+
+.backdrop-blur {
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+
+.backdrop-blur-m {
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.backdrop-blur-l {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.backdrop-blur-xl {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.frosted-glass {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: white;
+}
+
+.form-group input[type="password"],
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: "Epunda Slab", serif;
+  font-size: 1em;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.button-and-text {
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  justify-content: space-between;
+}
+
+button,
+button[type="submit"] {
+  padding: 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid white !important;
+  color: white;
+  border: none;
+  font-family: "Epunda Slab", serif !important;
+  font-optical-sizing: auto;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button,
+button[type="submit"]:hover {
+  background-color: rgba(0, 123, 250, 0.15);
+}
+
+#dashboard-area {
+  display: none;
+}
+
+.top-bar {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+}
+
+.logo-dashboard {
+  background-color: rgba(0, 123, 250, 0.5);
+  padding: auto 8px 12px;
+  height: 60px;
+  width: 60px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  border-radius: 50%;
+  i {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  span {
+    position: absolute;
+    color: white;
+    font-size: 0.91em;
+    top: 40px;
+    left: 28px;
+  }
+}
+
+.owner-name {
+  color: white;
+  background-color: rgba(0, 123, 250, 0.2);
+  padding: 8px 8px;
+  border-radius: 15px;
+}
+
+.review-message {
+  display: flex;
+  gap: 20px;
+}
+
+.review-count {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: rgba(0, 123, 250, 0.2);
+
+  i {
+    font-size: 1.5em;
+  }
+  .circle-count {
+    background-color: rgba(0, 123, 250, 0.5);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 0.8em;
+    position: absolute;
+    font-weight: bold;
+    top: -5px;
+    left: 20px;
+    display: grid;
+    place-items: center;
+  }
+}
+
+.summary {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.card-review-message {
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: rgba(0, 123, 250, 0.2);
+  padding: 10px;
+  border-radius: 8px;
+  width: 150px;
+  text-align: center;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.15);
+  i {
+    font-size: 2em;
+  }
+}

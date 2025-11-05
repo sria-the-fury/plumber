@@ -55,6 +55,23 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
+//dashboard click
+const dashboardLinkTop = document.getElementById("dashboard-click");
+
+dashboardLinkTop.addEventListener("click", function (e) {
+  e.preventDefault();
+  console.log("Dashboard clicked");
+  window.location.replace("dashboard/dashboard.html");
+});
+
+const dashboardLinkSide = document.getElementById("dashboard-click-side");
+
+dashboardLinkSide.addEventListener("click", function (e) {
+  e.preventDefault();
+  console.log("Dashboard clicked");
+  window.location.replace("dashboard/dashboard.html");
+});
+
 // This area for testimony submission form
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -123,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
           return response.json();
         })
-        // Now you have the actual data from your PHP script
+
         .then((data) => {
           console.log("Success:", data);
           alert("Thank you for your review!");
