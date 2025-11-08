@@ -11,6 +11,7 @@ $create_testimony = "CREATE TABLE IF NOT EXISTS testimony (
     clientRating INT(1) NOT NULL,
     testimony TEXT NOT NULL,
     approved BOOLEAN DEFAULT FALSE NOT NULL,
+    archived BOOLEAN DEFAULT FALSE NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
 

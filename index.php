@@ -23,7 +23,7 @@
             <li><a href="#" class="active" data-target="home-content">Home</a></li>
             <li><a href="#" data-target="our-works-content">Our Works</a></li>
             <li><a href="#" data-target="contacts-content">Contacts</a></li>
-            <li><a id='dashboard-click' href="dashboard/dashboard.php"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+            <li><a id='dashboard-click' href="dashboard/dashboard.php" target="_blank"><i class="fa-solid fa-right-to-bracket"></i></a></li>
         </ul>
         <button class="menu-toggle" onclick="openNav()" id="open_nav">☰</button>
         <button class="close-btn menu-toggle" id="close_nav" onclick="closeNav()">X</button>
@@ -34,7 +34,7 @@
         <a href="#" class="active" data-target="home-content">Home</a>
         <a href="#" data-target="our-works-content"> Our Works</a>
         <a href="#" data-target="contacts-content"> Contacts</a>
-        <a id='dashboard-click-side' href="dashboard/dashboard.php"><i class="fa-solid fa-right-to-bracket"></i></a>
+        <a id='dashboard-click-side' href="dashboard/dashboard.php" target="_blank"><i class="fa-solid fa-right-to-bracket"></i></a>
     </div>
     <div class="container">
         <!--Homepage html started-->
@@ -198,7 +198,7 @@
                     <div class="card-wrapper" id="tesimony-data">
                         <?php
                         include 'php/connection.php';
-                        $sql = "SELECT clientName, clientLocation, clientRating, testimony FROM testimony WHERE approved = TRUE ORDER BY created_at DESC";
+                        $sql = "SELECT clientName, clientLocation, clientRating, testimony FROM testimony WHERE approved = TRUE AND archived = FALSE ORDER BY created_at DESC";
                         $result = $connection_sql->query($sql);
                         if ($result->num_rows > 0) {
                             // Output data of each row
@@ -232,11 +232,11 @@
                 <form id="testimonial-form" method="POST" class="backdrop-blur-l round frosted-glass testimonial-form">
                     <div class="form-group">
                         <label for="clientName">Your Name</label>
-                        <input type="text" id="clientName" name="clientName" required>
+                        <input type="text" id="clientName" name="clientName" required maxlength="30">
                     </div>
                     <div class="form-group">
                         <label for="location">Your Location (e.g., City or Neighborhood)</label>
-                        <input type="text" id="location" name="location" required>
+                        <input type="text" id="location" name="location" required maxlength="50">
                     </div>
 
                     <div class="form-group">
@@ -308,7 +308,7 @@
                 <form method="POST" id="contact-form" class="contact-form backdrop-blur-m">
                     <div class="form-group">
                         <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" required maxlength="30">
                     </div>
                     <div class="form-group">
                         <label for="email">Your Email</label>
@@ -319,15 +319,14 @@
                         <select id="service" name="service">
                             <option value="">Select a reason...</option>
                             <option value="emergency">Emergency Service</option>
-                            <option value="quote">Request a Quote</option>
                             <option value="repair">Schedule a Repair</option>
                             <option value="maintenance">Maintenance Inquiry</option>
                             <option value="other">Other</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message" id="count-message-char">Your Message [0 / 350]</label>
+                        <textarea maxlength="350" id="message" name="message" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="button round-corner">Send Message</button>
                 </form>
