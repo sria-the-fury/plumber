@@ -55,6 +55,23 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
+//dashboard click
+const dashboardLinkTop = document.getElementById("dashboard-click");
+
+dashboardLinkTop.addEventListener("click", function (e) {
+  e.preventDefault();
+  console.log("Dashboard clicked");
+  window.location.replace("dashboard/dashboard.php");
+});
+
+const dashboardLinkSide = document.getElementById("dashboard-click-side");
+
+dashboardLinkSide.addEventListener("click", function (e) {
+  e.preventDefault();
+  console.log("Dashboard clicked");
+  window.location.replace("dashboard/dashboard.php");
+});
+
 // This area for testimony submission form
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -103,13 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const formData = new FormData(formTestimony);
-    console.log("Form data length:", formData);
     const formDataLen = Array.from(formData.entries()).length;
-    console.log("Form data length:", formDataLen);
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
-    console.log("Form data length 2:", formData);
 
     if (formDataLen == 5) {
       fetch("php/add_testimony.php", {
@@ -123,17 +134,15 @@ document.addEventListener("DOMContentLoaded", function () {
           }
           return response.json();
         })
-        // Now you have the actual data from your PHP script
+
         .then((data) => {
-          console.log("Success:", data);
-          alert("Thank you for your review!");
+          alert(
+            "Thank you for your review! It has been submitted successfully. It will be visible once approved."
+          );
           // Clear the form
           formTestimony.reset();
           resetStars();
           ratingValueInput.value = "0";
-          setTimeout(() => {
-            location.reload();
-          }, 1000);
         })
         .catch((error) => {
           console.error("Fetch error:", error);
@@ -186,7 +195,6 @@ contactForm.addEventListener("submit", function (event) {
     })
     // Now you have the actual data from your PHP script
     .then((data) => {
-      console.log("Success:", data);
       alert("Your message has been sent successfully!");
       contactForm.reset(); // Clear the form
     })
@@ -205,6 +213,13 @@ document.addEventListener("DOMContentLoaded", function () {
   testimonyInput.addEventListener("input", () => {
     const currentLength = testimonyInput.value.length;
     countCharLabel.textContent = `Your Testimony [${currentLength} / 200]`;
-    console.log(currentLength); // Check if this logs in console
+  });
+
+  // count contact message
+  const messageInput = document.getElementById("message");
+  const countMessage = document.getElementById("count-message-char");
+  messageInput.addEventListener("input", () => {
+    const currentLenght = messageInput.value.length;
+    countMessage.textContent = `Your Message [${currentLenght} / 350]`;
   });
 });
