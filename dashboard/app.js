@@ -27,10 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        if (user.providerData[0].providerId === defineLoginMethodForOwner) {
-          loginDiv.style.display = "none";
-          dashboardDiv.style.display = "block";
-        }
+        checkUserPasswordStatus(user);
       })
       .catch((error) => {
         console.error("Login failed:", error.message);
@@ -40,18 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   auth.onAuthStateChanged((user) => {
     if (user) {
-      if (user.providerData[0].providerId === defineLoginMethodForOwner) {
-        dashboardDiv.style.display = "block";
-        loginDiv.style.display = "none";
-
-        const userDisplayName = document.getElementById("owner-name");
-        if (user.email) {
-          userDisplayName.style.fontWeight = "bold";
-          userDisplayName.textContent = user.email;
-        } else {
-          userDisplayName.textContent = "Set Your name";
-        }
-      }
+      checkUserPasswordStatus(user);
     } else {
       dashboardDiv.style.display = "none";
       loginDiv.style.display = "block";
@@ -110,6 +96,40 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     }
   });
+
+  async function checkUserPasswordStatus(user) {
+    const email = user.email;
+    if (!email) {
+      return;
+    }
+    try {
+      const signInMethods = await auth.fetchSignInMethodsForEmail(email);
+
+      if (signInMethods.includes("password")) {
+        //here open
+        loginDiv.style.display = "none";
+        dashboardDiv.style.display = "block";
+        const userDisplayName = document.getElementById("owner-name");
+        if (email) {
+          userDisplayName.style.fontWeight = "bold";
+          userDisplayName.textContent = email;
+        } else {
+          userDisplayName.textContent = "Set Your name";
+        }
+      } else {
+        loginDiv.style.display = "block";
+        dashboardDiv.style.display = "none";
+
+        console.log("User does not have a password. Access denied.");
+
+        auth.signOut();
+      }
+    } catch (error) {
+      console.error("Error fetching sign-in methods:", error);
+      alert("Could not verify your account type. Please try again.");
+      auth.signOut();
+    }
+  }
 
   function isValidEmail(email) {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;

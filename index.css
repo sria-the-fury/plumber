@@ -566,3 +566,7 @@ body::before {
 .our-works-container {
   display: none;
 }
+
+fieldset {
+  border: none;
+}

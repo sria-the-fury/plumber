@@ -110,7 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Form Submission
   const formTestimony = document.getElementById("testimonial-form");
   formTestimony.addEventListener("submit", function (event) {
-    // Stop the form from submitting the traditional way
     event.preventDefault();
 
     const rating = ratingValueInput.value;
@@ -127,7 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
         method: "POST",
         body: formData,
       })
-        // First, check if the response is okay, then parse it as JSON
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
@@ -139,15 +137,15 @@ document.addEventListener("DOMContentLoaded", function () {
           alert(
             "Thank you for your review! It has been submitted successfully. It will be visible once approved."
           );
-          // Clear the form
+
           formTestimony.reset();
           resetStars();
           ratingValueInput.value = "0";
+          deleteAllCookies();
+          window.location.reload();
         })
         .catch((error) => {
           console.error("Fetch error:", error);
-          // Display an error message to the user
-          // For example: responseMessage.textContent = "An error occurred.";
         });
     }
   });
@@ -186,22 +184,21 @@ contactForm.addEventListener("submit", function (event) {
     method: "POST",
     body: new FormData(contactForm),
   })
-    // First, check if the response is okay, then parse it as JSON
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
       return response.json();
     })
-    // Now you have the actual data from your PHP script
+
     .then((data) => {
       alert("Your message has been sent successfully!");
-      contactForm.reset(); // Clear the form
+      contactForm.reset();
+      deleteAllCookies();
+      window.location.reload();
     })
     .catch((error) => {
       console.error("Fetch error:", error);
-      // Display an error message to the user
-      // For example: responseMessage.textContent = "An error occurred.";
     });
 });
 
@@ -222,4 +219,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentLenght = messageInput.value.length;
     countMessage.textContent = `Your Message [${currentLenght} / 350]`;
   });
+
+  function deleteAllCookies() {
+    const cookies = document.cookie.split(";");
+
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i];
+      const eqPos = cookie.indexOf("=");
+      const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+
+      const cookieName = name.trim();
+
+      console.log(`Deleting cookie: ${cookieName}`);
+      document.cookie = `${cookieName}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+    }
+  }
 });
