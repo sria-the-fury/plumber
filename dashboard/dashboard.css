@@ -35,6 +35,16 @@ body::before {
 #login-container {
   display: none;
 }
+#dashboard-container {
+  display: none;
+}
+
+.forgot-password {
+  color: blueviolet;
+}
+.forgot-password:hover {
+  cursor: pointer;
+}
 
 .login-form-area {
   display: flex;
@@ -704,4 +714,10 @@ button[type="submit"]:hover {
   i {
     font-size: 0.9em;
   }
+}
+
+.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
