@@ -14,10 +14,10 @@
 <body>
     <!-- Will create NAV bar-->
     <nav class="navbar">
-        <a href="#" class="logo">
+        <div class="logo">
             <i class="fa-solid fa-faucet-drip"></i>
-            Doct r
-        </a>
+            <span class="business-name">Doctor</span>
+        </div>
 
         <ul class="nav-links">
             <li><a href="#" class="active" data-target="home-content">Home</a></li>
