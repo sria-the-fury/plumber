@@ -1,6 +1,4 @@
-// Wait for the HTML document to finish loading
 document.addEventListener("DOMContentLoaded", function () {
-  // 1. YOUR FIREBASE CONFIG
   const firebaseConfig = {
     apiKey: "AIzaSyASe8RMzNaNc5unnkJXvGYHZOx0iOmYZt8",
     authDomain: "pipe-doctor-25.firebaseapp.com",
@@ -11,9 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
     measurementId: "G-PPGB40N6XD",
   };
 
-  // 2. Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
+
+  const defineLoginMethodForOwner = "password";
 
   const loginDiv = document.getElementById("login-container");
   const dashboardDiv = document.getElementById("dashboard-container");
@@ -24,38 +23,36 @@ document.addEventListener("DOMContentLoaded", function () {
     const email = loginForm["email"].value;
     const password = loginForm["password"].value;
 
-    // 6. Sign in
     auth
       .signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        // Login was successful!
-        console.log("User signed in:", userCredential.user);
-        loginDiv.style.display = "none";
-        dashboardDiv.style.display = "block";
+        const user = userCredential.user;
+        if (user.providerData[0].providerId === defineLoginMethodForOwner) {
+          loginDiv.style.display = "none";
+          dashboardDiv.style.display = "block";
+        }
       })
       .catch((error) => {
-        // Handle errors
         console.error("Login failed:", error.message);
-        alert("Error: " + error.message);
+        alert(`${getErrorMessage(error.code)}`);
       });
   });
 
   auth.onAuthStateChanged((user) => {
     if (user) {
-      console.log("User email", user.email);
+      if (user.providerData[0].providerId === defineLoginMethodForOwner) {
+        dashboardDiv.style.display = "block";
+        loginDiv.style.display = "none";
 
-      dashboardDiv.style.display = "block";
-      loginDiv.style.display = "none";
-
-      const userDisplayName = document.getElementById("owner-name");
-      if (user.email) {
-        userDisplayName.style.fontWeight = "bold";
-        userDisplayName.textContent = user.email;
-      } else {
-        userDisplayName.textContent = "Set Your name";
+        const userDisplayName = document.getElementById("owner-name");
+        if (user.email) {
+          userDisplayName.style.fontWeight = "bold";
+          userDisplayName.textContent = user.email;
+        } else {
+          userDisplayName.textContent = "Set Your name";
+        }
       }
     } else {
-      // User is signed out
       dashboardDiv.style.display = "none";
       loginDiv.style.display = "block";
     }
@@ -68,13 +65,72 @@ document.addEventListener("DOMContentLoaded", function () {
       auth
         .signOut()
         .then(() => {
-          alert("Signed out successfully.");
           loginDiv.style.display = "block";
           dashboardDiv.style.display = "none";
         })
         .catch((error) => {
-          console.error("Sign out error:", error);
+          const errorCode = error.code;
+          alert(`${getErrorMessage(errorCode)}`);
         });
     }
   });
+
+  const forgetPasswordButton = document.getElementById("forget-password-btn");
+  forgetPasswordButton.addEventListener("click", () => {
+    const getEmailFromInput = document.getElementById("email");
+    const emailText = getEmailFromInput.value;
+    if (isValidEmail(emailText)) {
+      const originalText = forgetPasswordButton.textContent;
+      forgetPasswordButton.textContent = "Check your email inbox";
+      auth
+        .sendPasswordResetEmail(emailText)
+        .then(() => {
+          if (forgetPasswordButton.classList.contains("is-disabled")) {
+            return;
+          }
+          forgetPasswordButton.classList.add("is-disabled");
+
+          setTimeout(() => {
+            forgetPasswordButton.textContent = originalText;
+            forgetPasswordButton.classList.remove("is-disabled");
+          }, 10000);
+        })
+        .catch((e) => {
+          setTimeout(() => {
+            forgetPasswordButton.textContent = originalText;
+            forgetPasswordButton.classList.remove("is-disabled");
+          }, 10000);
+          const errorCode = e.code;
+
+          alert(`${getErrorMessage(errorCode)}`);
+        });
+    } else {
+      alert(
+        "Please enter a valid registered email address in the email input field."
+      );
+    }
+  });
+
+  function isValidEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return emailRegex.test(email);
+  }
+
+  function getErrorMessage(errorCode) {
+    switch (errorCode) {
+      case "auth/user-not-found":
+      case "auth/wrong-password":
+        return "Incorrect email or password.";
+      case "auth/email-already-in-use":
+        return "This email address is already in use by another account.";
+      case "auth/invalid-login-credentials":
+        return "Incorrect email or password.";
+      case "auth/invalid-email":
+        return "The email address provided is not valid.";
+      case "auth/too-many-requests":
+        return "Your account has been temporarily disabled due to too many failed login attempts. Please try again later.";
+      default:
+        return "An unexpected error occurred. Please check your connection and try again.";
+    }
+  }
 });

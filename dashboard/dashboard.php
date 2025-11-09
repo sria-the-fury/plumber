@@ -30,7 +30,7 @@
           <h3>Dashboard Login</h3>
           <form id="login-form">
             <div class="form-group">
-              <label for="email">Username:</label>
+              <label for="email">Registered Email:</label>
               <input type="email" id="email" name="email" required />
             </div>
             <div class="form-group">
@@ -40,7 +40,7 @@
 
             <div class="button-and-text">
               <button type="submit">Login</button>
-              <span class="forgot-password"><a href="#">Forgot Password?</a></span>
+              <span class="forgot-password" id="forget-password-btn">Forget Password?</span>
             </div>
           </form>
         </div>
