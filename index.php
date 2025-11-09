@@ -14,10 +14,10 @@
 <body>
     <!-- Will create NAV bar-->
     <nav class="navbar">
-        <a href="#" class="logo">
+        <div class="logo">
             <i class="fa-solid fa-faucet-drip"></i>
-            Doct r
-        </a>
+            <span class="business-name">Doctor</span>
+        </div>
 
         <ul class="nav-links">
             <li><a href="#" class="active" data-target="home-content">Home</a></li>
@@ -229,37 +229,52 @@
             <section id="add-testimonial" class="add-testimonial">
                 <h2>Had a Great Experience? Leave Us a Review!</h2>
                 <p class="section-description">Your review helps us and lets your neighbors know they can count on us.</p>
-                <form id="testimonial-form" method="POST" class="backdrop-blur-l round frosted-glass testimonial-form">
-                    <div class="form-group">
-                        <label for="clientName">Your Name</label>
-                        <input type="text" id="clientName" name="clientName" required maxlength="30">
-                    </div>
-                    <div class="form-group">
-                        <label for="location">Your Location (e.g., City or Neighborhood)</label>
-                        <input type="text" id="location" name="location" required maxlength="50">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Overall Rating</label>
-                        <div class="star-rating-input">
-                            <i class="fa-regular fa-star" data-value="1"></i>
-                            <i class="fa-regular fa-star" data-value="2"></i>
-                            <i class="fa-regular fa-star" data-value="3"></i>
-                            <i class="fa-regular fa-star" data-value="4"></i>
-                            <i class="fa-regular fa-star" data-value="5"></i>
+                <div class="backdrop-blur-l round frosted-glass testimonial-form">
+                    <form class="verify-email-form" id="verify-email-form">
+                        <p>Before writing a review, we need to verify you as a real person. Please verify your email first.</p>
+                        <div class="form-group">
+                            <label for="client-email">Your Email</label>
+                            <input type="email" id="client-email-verify" name="client-email" required maxlength="35">
                         </div>
-                        <input type="hidden" name="rating" id="rating-value" value="0" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="testimony" id="count-char">Your Testimony [0 / 200]</label>
-                        <textarea maxlength="200" id="testimony" name="testimony" rows="5" required></textarea>
-                    </div>
-                    <div class="form-group-checkbox">
-                        <input type="checkbox" id="consent" name="consent" required>
-                        <label for="consent">I agree that my name, location, and testimony can be displayed on this website.</label>
-                    </div>
-                    <button type="submit" class="round-corner button ">Submit Your Review</button>
-                </form>
+                        <button type="submit" class="round-corner button ">Verify your email</button>
+
+                    </form>
+                    <form id="testimonial-form" method="POST">
+
+                        <fieldset disabled id="review-form-fieldset">
+                            <div class="form-group">
+                                <label for="clientName">Your Name</label>
+                                <input type="text" id="clientName" name="clientName" required maxlength="30">
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Your Location (e.g., City or Neighborhood)</label>
+                                <input type="text" id="location" name="location" required maxlength="50">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Overall Rating</label>
+                                <div class="star-rating-input">
+                                    <i class="fa-regular fa-star" data-value="1"></i>
+                                    <i class="fa-regular fa-star" data-value="2"></i>
+                                    <i class="fa-regular fa-star" data-value="3"></i>
+                                    <i class="fa-regular fa-star" data-value="4"></i>
+                                    <i class="fa-regular fa-star" data-value="5"></i>
+                                </div>
+                                <input type="hidden" name="rating" id="rating-value" value="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="testimony" id="count-char">Your Testimony [0 / 200]</label>
+                                <textarea maxlength="200" id="testimony" name="testimony" rows="5" required></textarea>
+                            </div>
+                            <div class="form-group-checkbox">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                <label for="consent">I agree that my name, location, and testimony can be displayed on this website.</label>
+                            </div>
+                            <button type="submit" class="round-corner button ">Submit Your Review</button>
+                        </fieldset>
+                    </form>
+                </div>
+
 
             </section>
 
@@ -297,7 +312,7 @@
                         <i class="fas fa-exclamation-triangle icon"></i>
                         <h3>Emergency Service!</h3>
                         <p>Burst pipe? Leaking water heater? Don't wait!</p>
-                        <a href="tel:+370 690 96 326" class="btn btn-emergency">Call Emergency: ++370 690 96 326</a>
+                        <a href="tel:+370 690 96 326" class="btn btn-emergency">Call Emergency: +370 690 96 326</a>
                     </div>
                 </div>
             </section>
@@ -305,31 +320,46 @@
             <section class="contact-form-section">
                 <h2>Send Us a Message</h2>
                 <p>Have a question or want to request a free estimate? Fill out the form below!</p>
-                <form method="POST" id="contact-form" class="contact-form backdrop-blur-m">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required maxlength="30">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Reason for Contact</label>
-                        <select id="service" name="service">
-                            <option value="">Select a reason...</option>
-                            <option value="emergency">Emergency Service</option>
-                            <option value="repair">Schedule a Repair</option>
-                            <option value="maintenance">Maintenance Inquiry</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message" id="count-message-char">Your Message [0 / 350]</label>
-                        <textarea maxlength="350" id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="button round-corner">Send Message</button>
-                </form>
+                <div class="backdrop-blur-l round frosted-glass contact-form">
+                    <form class="verify-email-form" id="verify-email-form">
+
+                        <p>To prevent spam, we need to verify you as a real person. Please verify your email first.</p>
+                        <div class="form-group">
+                            <label for="client-email">Your Email</label>
+                            <input type="email" id="client-email-verify" name="client-email" required maxlength="35">
+                        </div>
+                        <button type="submit" class="round-corner button ">Verify your email</button>
+
+                    </form>
+                    <fieldset id="contact-form-fieldset" disabled>
+                        <form method="POST" id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required maxlength="30">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Reason for Contact</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a reason...</option>
+                                    <option value="emergency">Emergency Service</option>
+                                    <option value="repair">Schedule a Repair</option>
+                                    <option value="maintenance">Maintenance Inquiry</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" id="count-message-char">Your Message [0 / 350]</label>
+                                <textarea maxlength="350" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="button round-corner">Send Message</button>
+                        </form>
+                    </fieldset>
+                </div>
+
             </section>
             <section class="map-section">
                 <div class="container">
@@ -366,6 +396,9 @@
     </div>
     <!--footer html end here-->
     <!--In here the js code-->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="app.js"></script>
     <script src="index.js"></script>
 </body>
 
