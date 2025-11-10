@@ -294,7 +294,7 @@
                         <i class="fas fa-phone-alt icon"></i>
                         <h3>Call Us Anytime</h3>
                         <p>For immediate assistance or to schedule a service.</p>
-                        <a href="tel:+37069096326" class="btn btn-primary">+370 690 96 326</a>
+                        <a href="tel:+37069000000" class="btn btn-primary">+370 690 00 000</a>
                     </div>
                     <div class="contact-card backdrop-blur-m">
                         <i class="fas fa-envelope icon"></i>
@@ -312,55 +312,11 @@
                         <i class="fas fa-exclamation-triangle icon"></i>
                         <h3>Emergency Service!</h3>
                         <p>Burst pipe? Leaking water heater? Don't wait!</p>
-                        <a href="tel:+370 690 96 326" class="btn btn-emergency">Call Emergency: +370 690 96 326</a>
+                        <a href="tel:+370 690 00 000" class="btn btn-emergency">Call Emergency: +370 690 00 000</a>
                     </div>
                 </div>
             </section>
 
-            <section class="contact-form-section">
-                <h2>Send Us a Message</h2>
-                <p>Have a question or want to request a free estimate? Fill out the form below!</p>
-                <div class="backdrop-blur-l round frosted-glass contact-form">
-                    <form class="verify-email-form" id="verify-email-form">
-
-                        <p>To prevent spam, we need to verify you as a real person. Please verify your email first.</p>
-                        <div class="form-group">
-                            <label for="client-email">Your Email</label>
-                            <input type="email" id="client-email-verify" name="client-email" required maxlength="35">
-                        </div>
-                        <button type="submit" class="round-corner button ">Verify your email</button>
-
-                    </form>
-                    <fieldset id="contact-form-fieldset" disabled>
-                        <form method="POST" id="contact-form">
-                            <div class="form-group">
-                                <label for="name">Your Name</label>
-                                <input type="text" id="name" name="name" required maxlength="30">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Your Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="service">Reason for Contact</label>
-                                <select id="service" name="service">
-                                    <option value="">Select a reason...</option>
-                                    <option value="emergency">Emergency Service</option>
-                                    <option value="repair">Schedule a Repair</option>
-                                    <option value="maintenance">Maintenance Inquiry</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message" id="count-message-char">Your Message [0 / 350]</label>
-                                <textarea maxlength="350" id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="button round-corner">Send Message</button>
-                        </form>
-                    </fieldset>
-                </div>
-
-            </section>
             <section class="map-section">
                 <div class="container">
                     <h2>Our Service Area</h2>
