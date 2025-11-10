@@ -55,23 +55,6 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-//dashboard click
-const dashboardLinkTop = document.getElementById("dashboard-click");
-
-dashboardLinkTop.addEventListener("click", function (e) {
-  e.preventDefault();
-  console.log("Dashboard clicked");
-  window.location.replace("dashboard/dashboard.php");
-});
-
-const dashboardLinkSide = document.getElementById("dashboard-click-side");
-
-dashboardLinkSide.addEventListener("click", function (e) {
-  e.preventDefault();
-  console.log("Dashboard clicked");
-  window.location.replace("dashboard/dashboard.php");
-});
-
 // This area for testimony submission form
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -175,33 +158,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-//contect form
-const contactForm = document.getElementById("contact-form");
-contactForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  fetch("php/message.php", {
-    method: "POST",
-    body: new FormData(contactForm),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-
-    .then((data) => {
-      alert("Your message has been sent successfully!");
-      contactForm.reset();
-      deleteAllCookies();
-      window.location.reload();
-    })
-    .catch((error) => {
-      console.error("Fetch error:", error);
-    });
-});
-
 //count testimony char
 document.addEventListener("DOMContentLoaded", function () {
   const testimonyInput = document.getElementById("testimony");
@@ -209,15 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   testimonyInput.addEventListener("input", () => {
     const currentLength = testimonyInput.value.length;
-    countCharLabel.textContent = `Your Testimony [${currentLength} / 200]`;
-  });
-
-  // count contact message
-  const messageInput = document.getElementById("message");
-  const countMessage = document.getElementById("count-message-char");
-  messageInput.addEventListener("input", () => {
-    const currentLenght = messageInput.value.length;
-    countMessage.textContent = `Your Message [${currentLenght} / 350]`;
+    countCharLabel.textContent = `Your Review [${currentLength} / 200]`;
   });
 
   function deleteAllCookies() {
