@@ -57,8 +57,8 @@ document.addEventListener("keydown", function (event) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const cardWrapper = document.querySelector(".card-wrapper");
-  const leftArrow = document.querySelector(".left-arrow");
-  const rightArrow = document.querySelector(".right-arrow");
+  const leftArrow = document.querySelector("#left-arrow-review");
+  const rightArrow = document.querySelector("#right-arrow-review");
 
   if (leftArrow && rightArrow && cardWrapper) {
     leftArrow.addEventListener("click", () => {
