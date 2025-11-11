@@ -55,87 +55,6 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-// This area for testimony submission form
-
-document.addEventListener("DOMContentLoaded", function () {
-  // Star Rating Interaction
-  const stars = document.querySelectorAll(".star-rating-input i");
-  const ratingValueInput = document.getElementById("rating-value");
-
-  stars.forEach((star) => {
-    star.addEventListener("mouseover", function () {
-      resetStars();
-      const currentValue = this.dataset.value;
-      for (let i = 0; i < currentValue; i++) {
-        stars[i].classList.replace("fa-regular", "fa-solid");
-      }
-    });
-
-    star.addEventListener("mouseout", function () {
-      resetStars();
-      const selectedValue = ratingValueInput.value;
-      if (selectedValue > 0) {
-        for (let i = 0; i < selectedValue; i++) {
-          stars[i].classList.replace("fa-regular", "fa-solid");
-        }
-      }
-    });
-
-    star.addEventListener("click", function () {
-      ratingValueInput.value = this.dataset.value;
-    });
-  });
-
-  function resetStars() {
-    stars.forEach((s) => s.classList.replace("fa-solid", "fa-regular"));
-  }
-
-  // Form Submission
-  const formTestimony = document.getElementById("testimonial-form");
-  formTestimony.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const rating = ratingValueInput.value;
-    if (rating === "0") {
-      alert("Please select a star rating.");
-      return;
-    }
-
-    const formData = new FormData(formTestimony);
-    const formDataLen = Array.from(formData.entries()).length;
-
-    if (formDataLen == 5) {
-      fetch("php/add_testimony.php", {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-
-        .then((data) => {
-          alert(
-            "Thank you for your review! It has been submitted successfully. It will be visible once approved."
-          );
-
-          formTestimony.reset();
-          resetStars();
-          ratingValueInput.value = "0";
-          deleteAllCookies();
-          window.location.reload();
-        })
-        .catch((error) => {
-          console.error("Fetch error:", error);
-        });
-    }
-  });
-});
-
-// for testimonial card
-
 document.addEventListener("DOMContentLoaded", () => {
   const cardWrapper = document.querySelector(".card-wrapper");
   const leftArrow = document.querySelector(".left-arrow");
@@ -155,31 +74,5 @@ document.addEventListener("DOMContentLoaded", () => {
         behavior: "smooth",
       });
     });
-  }
-});
-
-//count testimony char
-document.addEventListener("DOMContentLoaded", function () {
-  const testimonyInput = document.getElementById("testimony");
-  const countCharLabel = document.getElementById("count-char");
-
-  testimonyInput.addEventListener("input", () => {
-    const currentLength = testimonyInput.value.length;
-    countCharLabel.textContent = `Your Review [${currentLength} / 200]`;
-  });
-
-  function deleteAllCookies() {
-    const cookies = document.cookie.split(";");
-
-    for (let i = 0; i < cookies.length; i++) {
-      const cookie = cookies[i];
-      const eqPos = cookie.indexOf("=");
-      const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
-
-      const cookieName = name.trim();
-
-      console.log(`Deleting cookie: ${cookieName}`);
-      document.cookie = `${cookieName}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
-    }
   }
 });

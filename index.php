@@ -196,7 +196,7 @@
                     <div class="card-wrapper" id="tesimony-data">
                         <?php
                         include 'php/connection.php';
-                        $sql = "SELECT clientName, clientLocation, clientRating, testimony FROM testimony WHERE approved = TRUE AND archived = FALSE ORDER BY created_at DESC";
+                        $sql = "SELECT clientName, clientLocation, clientRating, testimony FROM reviews WHERE approved = TRUE AND archived = FALSE ORDER BY created_at DESC";
                         $result = $connection_sql->query($sql);
                         if ($result->num_rows > 0) {
                             // Output data of each row
@@ -228,48 +228,45 @@
                 <h2>Had a Great Experience? Leave Us a Review!</h2>
                 <p class="section-description">Your review helps us and lets your neighbors know they can count on us.</p>
                 <div class="backdrop-blur-l round frosted-glass testimonial-form">
-                    <form class="verify-email-form" id="verify-email-form">
-                        <p>Before writing a review, we need to verify you as a real person. Please verify your email first.</p>
+
+                    <form id="testimonial-form" method="POST">
+
+
+                        <div class="form-group">
+                            <label for="clientName">Your Name</label>
+                            <input type="text" id="clientName" name="clientName" required maxlength="30">
+                        </div>
                         <div class="form-group">
                             <label for="client-email">Your Email</label>
                             <input type="email" id="client-email-verify" name="client-email" required maxlength="35">
                         </div>
-                        <button type="submit" class="round-corner button ">Verify your email</button>
+                        <div class="form-group">
+                            <label for="location">Your Location (e.g., City or Neighborhood)</label>
+                            <input type="text" id="location" name="location" required maxlength="50">
+                        </div>
 
-                    </form>
-                    <form id="testimonial-form" method="POST">
+                        <div class="form-group">
+                            <label>Overall Rating</label>
+                            <div class="star-rating-input">
+                                <i class="fa-regular fa-star" data-value="1"></i>
+                                <i class="fa-regular fa-star" data-value="2"></i>
+                                <i class="fa-regular fa-star" data-value="3"></i>
+                                <i class="fa-regular fa-star" data-value="4"></i>
+                                <i class="fa-regular fa-star" data-value="5"></i>
+                            </div>
+                            <input type="hidden" name="rating" id="rating-value" value="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="testimony" id="count-char">Your Testimony [0 / 200]</label>
+                            <textarea maxlength="200" id="testimony" name="testimony" rows="5" required></textarea>
+                        </div>
+                        <div class="form-group-checkbox">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent">I agree that my name, location, and testimony can be displayed on this website.</label>
+                        </div>
+                        <p id="status-message"></p>
+                        <button type="submit" class="round-corner button ">Submit Your Review</button>
 
-                        <fieldset disabled id="review-form-fieldset">
-                            <div class="form-group">
-                                <label for="clientName">Your Name</label>
-                                <input type="text" id="clientName" name="clientName" required maxlength="30">
-                            </div>
-                            <div class="form-group">
-                                <label for="location">Your Location (e.g., City or Neighborhood)</label>
-                                <input type="text" id="location" name="location" required maxlength="50">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Overall Rating</label>
-                                <div class="star-rating-input">
-                                    <i class="fa-regular fa-star" data-value="1"></i>
-                                    <i class="fa-regular fa-star" data-value="2"></i>
-                                    <i class="fa-regular fa-star" data-value="3"></i>
-                                    <i class="fa-regular fa-star" data-value="4"></i>
-                                    <i class="fa-regular fa-star" data-value="5"></i>
-                                </div>
-                                <input type="hidden" name="rating" id="rating-value" value="0" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="testimony" id="count-char">Your Testimony [0 / 200]</label>
-                                <textarea maxlength="200" id="testimony" name="testimony" rows="5" required></textarea>
-                            </div>
-                            <div class="form-group-checkbox">
-                                <input type="checkbox" id="consent" name="consent" required>
-                                <label for="consent">I agree that my name, location, and testimony can be displayed on this website.</label>
-                            </div>
-                            <button type="submit" class="round-corner button ">Submit Your Review</button>
-                        </fieldset>
                     </form>
                 </div>
 
