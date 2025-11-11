@@ -196,7 +196,7 @@
                     <div class="card-wrapper" id="tesimony-data">
                         <?php
                         include 'php/connection.php';
-                        $sql = "SELECT clientName, clientLocation, clientRating, testimony FROM testimony WHERE approved = TRUE AND archived = FALSE ORDER BY created_at DESC";
+                        $sql = "SELECT clientName, clientLocation, clientRating, testimony FROM reviews WHERE approved = TRUE AND archived = FALSE ORDER BY created_at DESC";
                         $result = $connection_sql->query($sql);
                         if ($result->num_rows > 0) {
                             // Output data of each row
