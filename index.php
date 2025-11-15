@@ -36,37 +36,36 @@
     </div>
     <div class="container ">
         <!--Homepage html started-->
-        <section id="home">
-            <div class="homepage-container all-content" id="home-content">
-                <div class="introduction backdrop-blur-l frosted-glass fade-in">
-                    <h2> Welcome to</h2>
-                    <h1>Pipe Doctor</h1>
-                    <blockquote class="fancy-quote backdrop-blur-m">
-                        <p>We build, we fix</p>
-                    </blockquote>
-                    <p>Your trusted experts for reliable, fast, and professional plumbing solutions in Vilnius.</p>
-                    <div class="button round-corner backdrop-blur">
-                        <a href="#">Free Consultation</a>
-
-                    </div>
+        <div class="homepage-container all-content" id="home-content">
+            <div class="introduction backdrop-blur-l frosted-glass fade-in">
+                <h2> Welcome to</h2>
+                <h1>Pipe Doctor</h1>
+                <blockquote class="fancy-quote backdrop-blur-m">
+                    <p>We build, we fix</p>
+                </blockquote>
+                <p>Your trusted experts for reliable, fast, and professional plumbing solutions in Vilnius.</p>
+                <div class="button round-corner backdrop-blur">
+                    <a href="#">Free Consultation</a>
 
                 </div>
-                <div class="parallax-1 parallax-section"></div>
 
-                <div class="news-area">
-                    <h2> Our News</h2>
+            </div>
+            <div class="parallax-1 parallax-section"></div>
 
-                    <div class="all-news-cards">
-                        <?php
-                        include 'php/connection.php';
-                        $sql = "SELECT * FROM news ORDER BY published_at DESC";
-                        $result = $connection_sql->query($sql);
-                        if ($result->num_rows > 0) {
+            <div class="news-area">
+                <h2> Our News</h2>
 
-                            while ($row = $result->fetch_assoc()) {
-                                $publish_time = date('D, d M, H:i', strtotime($row['published_at']));
+                <div class="all-news-cards">
+                    <?php
+                    include 'php/connection.php';
+                    $sql = "SELECT * FROM news ORDER BY published_at DESC";
+                    $result = $connection_sql->query($sql);
+                    if ($result->num_rows > 0) {
 
-                                echo '
+                        while ($row = $result->fetch_assoc()) {
+                            $publish_time = date('D, d M, H:i', strtotime($row['published_at']));
+
+                            echo '
                             <div class="news-card highlight">
                                 <small>
                                 ' . $publish_time . '
@@ -77,83 +76,82 @@
                                  </p>
                              </div>
                             ';
-                            }
                         }
+                    }
 
-                        ?>
+                    ?>
 
 
-                    </div>
-
-                </div>
-                <div class="our-services backdrop-blur-l frosted-glass fade-in-on-scroll visible">
-                    <h2>Our Services</h2>
-                    <p>We offer a wide range of plumbing services to meet your needs. No job is too big or too small.</p>
-                    <div class="cards-container">
-                        <div class="card">
-                            <i class="fa-solid fa-wrench"></i>
-                            <div class="card-title">
-                                Emergency Repairs
-                            </div>
-                            <p class="card-details">
-                                Available 24/7 for burst pipes, major leaks, and other urgent issues. We respond quickly to minimize damage.
-                            </p>
-                        </div>
-                        <div class="card">
-                            <i class="fa-solid fa-house-signal"></i>
-                            <div class="card-title">
-                                Smart Plumbing Systems
-                            </div>
-                            <p class="card-details">
-                                Upgrade your home with modern smart plumbing solutions. We install and service water leak detectors, smart water shut-off valves, and high-efficiency fixtures to help you conserve water and protect your property from damage.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <i class="fa-solid fa-shield"></i>
-                            <div class="card-title">
-                                Installations & Upgrades
-                            </div>
-                            <p class="card-details">
-                                From new faucets and toilets to complete bathroom and kitchen plumbing installations, we do it all with precision.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <i class="fa-solid fa-droplet"></i>
-                            <div class="card-title">
-                                Leak Detection
-                            </div>
-                            <p class="card-details">
-                                Using the latest technology, we can find and fix hidden leaks in your walls, floors, and underground pipes.
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="why-best">
-                    <div class="emp-image-container">
-                        <img class="round-corner emp-image" src="https://scoutnetworkblog.com/wp-content/uploads/2018/11/Plumber-Sink-201709-003.jpg" alt="Our Employee" />
-
-                    </div>
-                    <div class="why-best-content">
-                        <h2>Why we are the best choice for you</h2>
-                        <p>
-                            We are dedicated to providing the highest quality service with a focus on customer satisfaction and lasting results.
-                        </p>
-                        <div class="our-offer">
-                            <p><i class="fa-solid fa-angles-right"></i>Licensed & Insured Professionals</p>
-                            <p><i class="fa-solid fa-angles-right"></i>Upfront & Honest Pricing</p>
-                            <p><i class="fa-solid fa-angles-right"></i>24/7 Emergency Availability</p>
-                            <p><i class="fa-solid fa-angles-right"></i>Satisfaction Guaranteed</p>
-                        </div>
-
-                    </div>
                 </div>
 
             </div>
-        </section>
+            <div class="our-services backdrop-blur-l frosted-glass fade-in-on-scroll visible">
+                <h2>Our Services</h2>
+                <p>We offer a wide range of plumbing services to meet your needs. No job is too big or too small.</p>
+                <div class="cards-container">
+                    <div class="card">
+                        <i class="fa-solid fa-wrench"></i>
+                        <div class="card-title">
+                            Emergency Repairs
+                        </div>
+                        <p class="card-details">
+                            Available 24/7 for burst pipes, major leaks, and other urgent issues. We respond quickly to minimize damage.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-house-signal"></i>
+                        <div class="card-title">
+                            Smart Plumbing Systems
+                        </div>
+                        <p class="card-details">
+                            Upgrade your home with modern smart plumbing solutions. We install and service water leak detectors, smart water shut-off valves, and high-efficiency fixtures to help you conserve water and protect your property from damage.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <i class="fa-solid fa-shield"></i>
+                        <div class="card-title">
+                            Installations & Upgrades
+                        </div>
+                        <p class="card-details">
+                            From new faucets and toilets to complete bathroom and kitchen plumbing installations, we do it all with precision.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <i class="fa-solid fa-droplet"></i>
+                        <div class="card-title">
+                            Leak Detection
+                        </div>
+                        <p class="card-details">
+                            Using the latest technology, we can find and fix hidden leaks in your walls, floors, and underground pipes.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="why-best">
+                <div class="emp-image-container">
+                    <img class="round-corner emp-image" src="https://scoutnetworkblog.com/wp-content/uploads/2018/11/Plumber-Sink-201709-003.jpg" alt="Our Employee" />
+
+                </div>
+                <div class="why-best-content">
+                    <h2>Why we are the best choice for you</h2>
+                    <p>
+                        We are dedicated to providing the highest quality service with a focus on customer satisfaction and lasting results.
+                    </p>
+                    <div class="our-offer">
+                        <p><i class="fa-solid fa-angles-right"></i>Licensed & Insured Professionals</p>
+                        <p><i class="fa-solid fa-angles-right"></i>Upfront & Honest Pricing</p>
+                        <p><i class="fa-solid fa-angles-right"></i>24/7 Emergency Availability</p>
+                        <p><i class="fa-solid fa-angles-right"></i>Satisfaction Guaranteed</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
 
     </div>
 
