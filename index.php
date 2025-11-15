@@ -299,7 +299,7 @@
                     </div>
                     <div class="form-group-checkbox">
                         <input type="checkbox" id="consent" name="consent" required>
-                        <label for="consent">I agree that my name, location, and testimony can be displayed on this website.</label>
+                        <label for="consent">I agree that my name, location, and review can be displayed on this website.</label>
                     </div>
                     <p id="status-message"></p>
                     <button type="submit" class="round-corner button ">Submit Your Review</button>
