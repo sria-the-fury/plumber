@@ -7,6 +7,12 @@ function showContent(targetId) {
   const targetDiv = document.getElementById(targetId);
   if (targetDiv) {
     targetDiv.style.display = "block";
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+    targetDiv.scrollTop = 0;
   }
 }
 
@@ -57,8 +63,8 @@ document.addEventListener("keydown", function (event) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const cardWrapper = document.querySelector(".card-wrapper");
-  const leftArrow = document.querySelector(".left-arrow");
-  const rightArrow = document.querySelector(".right-arrow");
+  const leftArrow = document.querySelector("#left-arrow-review");
+  const rightArrow = document.querySelector("#right-arrow-review");
 
   if (leftArrow && rightArrow && cardWrapper) {
     leftArrow.addEventListener("click", () => {

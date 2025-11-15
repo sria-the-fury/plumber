@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   // --- Firebase Configuration ---
-  // IMPORTANT: Make sure you've secured your API key using Firebase App Check
-  // or by restricting it in your Google Cloud console.
   const firebaseConfig = {
-    apiKey: "AIzaSyASe8RMzNaNc5unnkJXvGYHZOx0iOmYZt8", // Per your code
+    apiKey: "AIzaSyASe8RMzNaNc5unnkJXvGYHZOx0iOmYZt8",
     authDomain: "pipe-doctor-25.firebaseapp.com",
     projectId: "pipe-doctor-25",
     storageBucket: "pipe-doctor-25.firebasestorage.app",
@@ -203,7 +201,6 @@ document.addEventListener("DOMContentLoaded", function () {
           "Success! Your review has been submitted. Thank you!",
           "success"
         );
-        form.style.display = "none";
       } else {
         throw new Error(result.message || "An unknown error occurred.");
       }
