@@ -386,8 +386,8 @@
     <!--In here the js code-->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-    <script src="/app.js"></script>
-    <script src="/index.js"></script>
+    <script src="app.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
