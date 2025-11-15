@@ -89,15 +89,13 @@
 
 /*Testimonial carousel*/
 
-/* Basic styling for the entire page and containers */
-
 .carousel-container {
   display: flex;
   align-items: center;
   width: 100%;
   margin-top: 0.5rem;
   position: relative;
-  padding: 0 50px; /* Space for the arrows */
+  padding: 0 50px; 
 }
 
 /* Styles for the cards and their wrapper */

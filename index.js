@@ -7,6 +7,12 @@ function showContent(targetId) {
   const targetDiv = document.getElementById(targetId);
   if (targetDiv) {
     targetDiv.style.display = "block";
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+    targetDiv.scrollTop = 0;
   }
 }
 

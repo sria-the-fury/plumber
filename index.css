@@ -13,6 +13,7 @@ body {
   margin: 0;
   font-family: "Epunda Slab", serif;
   font-optical-sizing: auto;
+  color: white;
   height: 100%; /* Important for the background to cover the full page */
 }
 
@@ -392,6 +393,9 @@ body::before {
   flex-shrink: 1;
   flex-grow: 1;
   padding: 10px;
+  h2 {
+    color: white !important;
+  }
 }
 .emp-image-container {
   display: flex;
@@ -571,6 +575,7 @@ body::before {
 .news-area {
   margin-top: 20px;
   margin-left: 20px;
+  margin-right: 20px;
   h2 {
     text-align: center;
   }
@@ -624,5 +629,13 @@ body::before {
 .news-card.highlight .card-text {
   color: #444;
   font-size: 1em;
+  text-align: justify;
   line-height: 1.5;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
