@@ -78,6 +78,7 @@
                             ';
                         }
                     }
+                    $connection_sql->close();
 
                     ?>
 
