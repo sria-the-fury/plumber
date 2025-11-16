@@ -13,13 +13,13 @@
 
     <meta property="og:title" content="Pipe Doctor - We Build, We Fix" />
     <meta property="og:description" content="Book licensed plumbers instantly. Emergency repairs, installations, and maintenance. Fast, reliable, and affordable plumbing services near you." />
-    <meta property="og:image" content="%PUBLIC_URL%/image/meta-tags.png" />
+    <meta property="og:image" content="/image/meta-tags.png" />
 
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Pipe Doctor - We Build, We Fix" />
     <meta property="twitter:description" content="Book licensed plumbers instantly. Emergency repairs, installations, and maintenance. Fast, reliable, and affordable plumbing services near you." />
-    <meta property="twitter:image" content="%PUBLIC_URL%/image/meta-tags.png" />
+    <meta property="twitter:image" content="/image/meta-tags.png" />
     <link rel="icon" type="image/png" href="/image/brand.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
