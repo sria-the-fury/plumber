@@ -574,8 +574,8 @@ body::before {
 
 .news-area {
   margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
   h2 {
     text-align: center;
   }
@@ -599,18 +599,22 @@ body::before {
 
 .news-card.highlight {
   flex: 0 0 auto;
-  border-left: 5px solid #007bff;
+  border-left: 4px solid white;
+  border-right: 1px solid grey;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
   padding: 20px;
   max-width: 400px;
-
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   margin-bottom: 20px;
   border-radius: 10px;
   min-width: 300px;
-  background-color: #f7f9fc;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
   transition: transform 0.3s ease;
   small {
-    color: grey;
+    color: lightseagreen;
     padding: 4px 4px;
   }
 }
@@ -621,13 +625,13 @@ body::before {
 }
 
 .news-card.highlight .card-title {
-  color: #007bff;
+  color: white;
   margin-top: 0;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .news-card.highlight .card-text {
-  color: #444;
+  color: lightgrey;
   font-size: 1em;
   text-align: justify;
   line-height: 1.5;
