@@ -34,7 +34,7 @@
     <nav class="navbar">
         <div class="logo">
             <i class="fa-solid fa-faucet-drip"></i>
-            <span class="business-name">Doctor</span>
+            <span class="business-name">Doct r</span>
         </div>
 
         <ul class="nav-links">
