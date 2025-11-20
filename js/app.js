@@ -137,7 +137,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Show loading state
       showStatus("Verifying your email, please wait...", "info");
-      form.style.display = "none";
 
       auth
         .signInWithEmailLink(email, window.location.href)
