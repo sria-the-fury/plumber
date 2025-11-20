@@ -64,7 +64,6 @@
                 <p>Your trusted experts for reliable, fast, and professional plumbing solutions in Vilnius.</p>
                 <div class="button round-corner backdrop-blur">
                     <a href="#">Free Consultation</a>
-
                 </div>
 
             </div>

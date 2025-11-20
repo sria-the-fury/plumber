@@ -91,4 +91,4 @@ try {
 
 echo json_encode($response);
 
-$connection_sql->close(); // (Optional, depending on your connection.php)
+$connection_sql->close(); 
